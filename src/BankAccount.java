@@ -29,7 +29,7 @@ public class BankAccount {
         if(sum > amount && amount>0)
         throw new LimitException("У вас недостаточно средств. Будет снят остаток");
         else if (sum <= 0){
-            throw new SumException("Вводимое значение не может быть меньше нуля");
+            throw new SumException("Вводимое значение не может быть равно 0 или меньше");
         }
         else if (amount == 0) {
             System.out.println("На счете нет средств");
