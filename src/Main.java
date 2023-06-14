@@ -12,11 +12,21 @@ public class Main {
                 if (command == 1) {
                     System.out.println(bankAccount.getAmount());
                 } else if (command == 2) {
-                    bankAccount.deposit(0);
+                    try {
+                        bankAccount.deposit(0);
+                    }
+                    catch (SumException ie){
+                        System.out.println(ie.getMessage());
+                    }
                 } else if (command == 3) {
                     try {
                         bankAccount.withDraw(0);
-                    } catch (LimitException ie) {
+
+                    }
+                    catch (SumException ie){
+                        System.out.println(ie.getMessage());
+                    }
+                    catch (LimitException ie) {
                         System.out.println(ie.getMessage());
                         bankAccount.setAmount(bankAccount.getAmount() - bankAccount.getAmount());
                         System.out.println("Остаток по карте " + bankAccount.getAmount());
